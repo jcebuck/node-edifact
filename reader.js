@@ -74,6 +74,9 @@ var Reader = function (config) {
  * @param {Object} definitions An object containing the definitions.
  */
 Reader.prototype.define = function (definitions) {
+  if (!Object.keys(definitions).length) {
+    return this._validator.disable();
+  }
   this._validator.define(definitions);
 }
 
